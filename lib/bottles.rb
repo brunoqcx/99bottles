@@ -7,9 +7,12 @@ class Bottles
     bottles(number).verse
   end
 
-  def verses(*numbers)
-    # *numbers.map { |number| verse(number) }
-    *numbers
+  def verses(first_num, last_num)
+    (last_num..first_num).to_a.reverse.map { |number| verse(number) }.join("\n")
+  end
+
+  def song
+    verses(99, 0)
   end
 
   def bottles(number)
