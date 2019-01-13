@@ -15,6 +15,8 @@ class Bottles
     verses(99, 0)
   end
 
+  private
+
   def verses_collection(begin_quantity, end_quantity)
     (end_quantity..begin_quantity).to_a.reverse.map { |number| verse(number) }
   end
