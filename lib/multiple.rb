@@ -1,16 +1,18 @@
 class Multiple
-  def initialize(number)
-    @number = number
+  def initialize(quantity)
+    @quantity = quantity
   end
 
   def verse
     <<-VERSE
-#{@number} bottles of beer on the wall, #{@number} bottles of beer.
-Take one down and pass it around, #{@number-1} #{bottles_plural(@number-1)} of beer on the wall.
+#{@quantity} bottles of beer on the wall, #{@quantity} bottles of beer.
+Take one down and pass it around, #{@quantity-1} #{bottles_plural(@quantity-1)} of beer on the wall.
     VERSE
   end
 
-  def bottles_plural(number)
-    number == 1 ? "bottle" : "bottles"
+  private
+
+  def bottles_plural(quantity)
+    quantity == 1 ? "bottle" : "bottles"
   end
 end

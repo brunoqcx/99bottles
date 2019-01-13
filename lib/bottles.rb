@@ -3,26 +3,30 @@ require_relative './single'
 require_relative './multiple'
 
 class Bottles
-  def verse(number)
-    bottles(number).verse
+  def verse(quantity)
+    bottles(quantity).verse
   end
 
-  def verses(first_num, last_num)
-    (last_num..first_num).to_a.reverse.map { |number| verse(number) }.join("\n")
+  def verses(begin_quantity, end_quantity)
+    verses_collection(begin_quantity, end_quantity).join("\n")
   end
 
   def song
     verses(99, 0)
   end
 
-  def bottles(number)
-    case number
+  def verses_collection(begin_quantity, end_quantity)
+    (end_quantity..begin_quantity).to_a.reverse.map { |number| verse(number) }
+  end
+
+  def bottles(quantity)
+    case quantity
     when 0
       ::Empty.new
     when 1
       ::Single.new
     else
-      ::Multiple.new(number)
+      ::Multiple.new(quantity)
     end
   end
 end
